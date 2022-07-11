@@ -1,0 +1,9 @@
+@import "./variables";
+@import "./extend";
+@import "./mixin";
+
+// button {
+//   @include name(2);
+//   @extend %extend;
+//   background-color: $color;
+// }
