@@ -28,8 +28,36 @@ const result = {
   33: "Draw",
 };
 
+let computerBtn = document.querySelectorAll(`.computer button`);
+let userBtn = document.querySelectorAll(`.user button`);
+let gamePlay = true;
+
+let clearBoth = () => {
+  computerBtn.forEach((btn) => {
+    btn.style.backgroundColor = "transparent";
+  });
+  userBtn.forEach((btn) => {
+    btn.style.backgroundColor = "transparent";
+  });
+  gamePlay = true;
+};
+
 let playGame = (userSelection) => {
-  let pcSelection = Math.floor(Math.random() * 3 + 1);
-  document.querySelector("main div:nth-of-type(2)").innerHTML =
-    "<h2>" + result[`${String(userSelection)}${String(pcSelection)}`] + "</h2>";
+  if (gamePlay) {
+    gamePlay = false;
+    let pcSelection = Math.floor(Math.random() * 3 + 1);
+    document.querySelector(
+      `.computer button:nth-of-type(${pcSelection})`
+    ).style.backgroundColor = "red";
+    document.querySelector(
+      `.user button:nth-of-type(${userSelection})`
+    ).style.backgroundColor = "red";
+    document.querySelector("main div:nth-of-type(2)").innerHTML =
+      "<h2>" +
+      result[`${String(userSelection)}${String(pcSelection)}`] +
+      "</h2>";
+    setTimeout(() => {
+      clearBoth();
+    }, 1000);
+  }
 };
