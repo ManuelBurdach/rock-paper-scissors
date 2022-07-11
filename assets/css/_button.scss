@@ -1,0 +1,17 @@
+.button__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  button {
+    height: 7rem;
+    width: 7rem;
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}

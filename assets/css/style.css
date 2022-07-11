@@ -1,1 +1,37 @@
-/*# sourceMappingURL=style.css.map */
+.button__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.button__container button {
+  height: 7rem;
+  width: 7rem;
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s;
+}
+.button__container button:hover {
+  transform: scale(1.25);
+}
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-color: lightseagreen;
+}
+
+.playground {
+  margin: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}/*# sourceMappingURL=style.css.map */
