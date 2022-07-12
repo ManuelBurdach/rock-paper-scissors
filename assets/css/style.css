@@ -5,6 +5,7 @@
   gap: 3rem;
 }
 .button__container button {
+  margin-top: 20px;
   height: 7rem;
   width: 7rem;
   background-color: transparent;
