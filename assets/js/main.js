@@ -1,20 +1,7 @@
-document
-  .querySelector(".user button:nth-of-type(1)")
-  .addEventListener("click", () => {
-    playGame(1);
-  });
-
-document
-  .querySelector(".user button:nth-of-type(2)")
-  .addEventListener("click", () => {
-    playGame(2);
-  });
-
-document
-  .querySelector(".user button:nth-of-type(3)")
-  .addEventListener("click", () => {
-    playGame(3);
-  });
+let computerBtn = document.querySelectorAll(`.computer button`);
+let userBtn = document.querySelectorAll(`.user button`);
+let gamePlay = true;
+let output = document.querySelector(".result");
 
 const result = {
   11: "Draw",
@@ -28,36 +15,29 @@ const result = {
   33: "Draw",
 };
 
-let computerBtn = document.querySelectorAll(`.computer button`);
-let userBtn = document.querySelectorAll(`.user button`);
-let gamePlay = true;
+userBtn.forEach((userBtn, index) => {
+  userBtn.addEventListener("click", () => {
+    playGame(index + 1);
+  });
+});
 
 let clearBoth = () => {
-  computerBtn.forEach((btn) => {
+  computerBtn.forEach((btn, index) => {
     btn.style.backgroundColor = "transparent";
-  });
-  userBtn.forEach((btn) => {
-    btn.style.backgroundColor = "transparent";
+    userBtn[index].style.backgroundColor = "transparent";
   });
   gamePlay = true;
 };
 
 let playGame = (userSelection) => {
   if (gamePlay) {
-    gamePlay = false;
     let pcSelection = Math.floor(Math.random() * 3 + 1);
-    document.querySelector(
-      `.computer button:nth-of-type(${pcSelection})`
-    ).style.backgroundColor = "red";
-    document.querySelector(
-      `.user button:nth-of-type(${userSelection})`
-    ).style.backgroundColor = "red";
-    document.querySelector("main div:nth-of-type(2)").innerHTML =
-      "<h2>" +
-      result[`${String(userSelection)}${String(pcSelection)}`] +
-      "</h2>";
+    gamePlay = false;
+    computerBtn[pcSelection - 1].style.backgroundColor = "red";
+    userBtn[userSelection - 1].style.backgroundColor = "red";
+    output.innerHTML = result[String(userSelection) + String(pcSelection)];
     setTimeout(() => {
       clearBoth();
-    }, 1000);
+    }, 250);
   }
 };
