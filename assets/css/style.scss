@@ -12,6 +12,10 @@ body,
   padding: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
 .main {
   height: 100vh;
   width: 100vw;
@@ -19,9 +23,19 @@ body,
 }
 
 .playground {
-  margin: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+  text-align: center;
+  margin: 10%;
+  // margin: 20%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 5rem;
+}
+
+.computerDiv {
+  height: 7rem;
+  width: 7rem;
+  background-color: transparent;
+  border: none;
+  margin: 0 auto;
 }
