@@ -1,3 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const usersCollectionRef = collection(db, "users");
+console.log(usersCollectionRef);
+
+const getUsers = async () => {
+  const data = await getDocs(usersCollectionRef);
+  data.docs.map((doc) => {
+    console.log(doc.data().username);
+  });
+};
+getUsers();
+
 let computer = document.querySelector(".computer");
 let userBtn = document.querySelectorAll(`.user button`);
 let gamePlay = true;
